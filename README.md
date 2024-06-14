@@ -8,7 +8,7 @@ conda create -yn unitree python=3.8
 ```
 
 ```bash
-conda create -yp ./conda-env/ python=3.8
+conda create -yp ./.conda-env/ python=3.8
 ```
 
 
