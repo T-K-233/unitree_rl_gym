@@ -4,6 +4,15 @@
 # Setup instructions
 
 ```bash
+conda create -yn unitree python=3.8
+```
+
+```bash
+conda create -yp ./conda-env/ python=3.8
+```
+
+
+```bash
 pip install -r requirements.txt
 
 pip install -e ~/Documents/isaacgym/python/
