@@ -4,25 +4,6 @@ class G1RoughCfg(LeggedRobotCfg):
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, 0.68] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
-            #    'left_hip_yaw_joint' : 0. ,   
-            #    'left_hip_roll_joint' : 0,               
-            #    'left_hip_pitch_joint' : -0.4,         
-            #    'left_knee_joint' : 0.8,       
-            #    'left_ankle_joint' : -0.4,     
-            #    'right_hip_yaw_joint' : 0., 
-            #    'right_hip_roll_joint' : 0, 
-            #    'right_hip_pitch_joint' : -0.4,                                       
-            #    'right_knee_joint' : 0.8,                                             
-            #    'right_ankle_joint' : -0.4,                                     
-            #    'torso_joint' : 0., 
-            #    'left_shoulder_pitch_joint' : 0., 
-            #    'left_shoulder_roll_joint' : 0, 
-            #    'left_shoulder_yaw_joint' : 0.,
-            #    'left_elbow_joint'  : 0.,
-            #    'right_shoulder_pitch_joint' : 0.,
-            #    'right_shoulder_roll_joint' : 0.0,
-            #    'right_shoulder_yaw_joint' : 0.,
-            #    'right_elbow_joint' : 0.,
             "left_hip_pitch_joint": -0.4,
             "left_hip_roll_joint": 0,
             "left_hip_yaw_joint": 0,
@@ -63,32 +44,29 @@ class G1RoughCfg(LeggedRobotCfg):
         }
     
     class env(LeggedRobotCfg.env):
-        # num_observations = 123
-        # num_actions = 37
-        
-        num_observations = 48
-        num_actions = 12
+        num_observations = 123
+        num_actions = 37
 
     class control(LeggedRobotCfg.control):
         # PD Drive parameters:
-        control_type = 'P'
+        control_type = "P"
           # PD Drive parameters:
-        stiffness = {'hip_yaw': 60,
-                     'hip_roll': 60,
-                     'hip_pitch': 60,
-                     'knee': 80,
-                     'ankle': 30,
-                     'torso': 80,
-                     'shoulder': 30,
-                     "elbow": 30,
+        stiffness = {"hip_yaw": 60,
+                     "hip_roll": 60,
+                     "hip_pitch": 60,
+                     "knee": 100,
+                     "ankle": 40,
+                     "torso": 80,
+                     "shoulder": 40,
+                     "elbow": 40,
                      }  # [N*m/rad]
-        damping = {  'hip_yaw': 3,
-                     'hip_roll': 3,
-                     'hip_pitch': 3,
-                     'knee': 3,
-                     'ankle': 1,
-                     'torso': 3,
-                     'shoulder': 2,
+        damping = {  "hip_yaw": 3,
+                     "hip_roll": 3,
+                     "hip_pitch": 3,
+                     "knee": 4,
+                     "ankle": 2,
+                     "torso": 3,
+                     "shoulder": 2,
                      "elbow": 2,
                      }  # [N*m/rad]  # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
@@ -107,7 +85,7 @@ class G1RoughCfg(LeggedRobotCfg):
   
     class rewards(LeggedRobotCfg.rewards):
         soft_dof_pos_limit = 0.9
-        base_height_target = 0.78
+        base_height_target = 0.7
         
         class scales(LeggedRobotCfg.rewards.scales):
             tracking_lin_vel = 1.0
@@ -123,6 +101,26 @@ class G1RoughCfg(LeggedRobotCfg):
             torques = 0.0
             dof_pos_limits = -10.0
 
+    class domain_rand:
+        randomize_friction = False
+        friction_range = [0.5, 1.25]
+        randomize_base_mass = False
+        added_mass_range = [-1., 1.]
+        push_robots = False
+        push_interval_s = 15
+        max_push_vel_xy = 1.
+
+    class noise:
+        add_noise = False
+        noise_level = 1.0 # scales other values
+        class noise_scales:
+            dof_pos = 0.01
+            dof_vel = 1.5
+            lin_vel = 0.1
+            ang_vel = 0.2
+            gravity = 0.05
+            height_measurements = 0.1
+
 class G1RoughCfgPPO(LeggedRobotCfgPPO):
     class algorithm(LeggedRobotCfgPPO.algorithm):
         entropy_coef = 0.01
@@ -130,4 +128,35 @@ class G1RoughCfgPPO(LeggedRobotCfgPPO):
         run_name = ""
         experiment_name = "g1"
 
+
+
+
+
+
+class G1LegRoughCfg(G1RoughCfg):
+    class env(G1RoughCfg.env):
+        num_observations = 48
+        num_actions = 12
+
+    class asset(G1RoughCfg.asset):
+        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/g1/urdf/g1_leg.urdf"
+
+class G1LegRoughCfgPPO(G1RoughCfgPPO):
+    class runner(G1RoughCfgPPO.runner):
+        experiment_name = "g1_leg"
+
   
+
+
+
+class G1LegArmRoughCfg(G1RoughCfg):
+    class env(G1RoughCfg.env):
+        num_observations = 48
+        num_actions = 12
+    
+    class asset(G1RoughCfg.asset):
+        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/g1/urdf/g1_leg_arm.urdf"
+
+class G1LegArmRoughCfgPPO(G1RoughCfgPPO):
+    class runner(G1RoughCfgPPO.runner):
+        experiment_name = "g1_leg_arm"
