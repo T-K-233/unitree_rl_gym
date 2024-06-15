@@ -63,8 +63,11 @@ class G1RoughCfg(LeggedRobotCfg):
         }
     
     class env(LeggedRobotCfg.env):
-        num_observations = 123
-        num_actions = 37
+        # num_observations = 123
+        # num_actions = 37
+        
+        num_observations = 48
+        num_actions = 12
 
     class control(LeggedRobotCfg.control):
         # PD Drive parameters:

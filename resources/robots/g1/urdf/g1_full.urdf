@@ -474,7 +474,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="torso_joint" type="fixed">
+  <joint name="torso_joint" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="pelvis"/>
     <child link="torso_link"/>
@@ -534,7 +534,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_shoulder_pitch_joint" type="fixed">
+  <joint name="left_shoulder_pitch_joint" type="revolute">
     <origin xyz="-0.0025 0.10396 0.25928" rpy="0.27925 0 0"/>
     <parent link="torso_link"/>
     <child link="left_shoulder_pitch_link"/>
@@ -563,7 +563,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_shoulder_roll_joint" type="fixed">
+  <joint name="left_shoulder_roll_joint" type="revolute">
     <origin xyz="0 0.052 0" rpy="-0.27925 0 0"/>
     <parent link="left_shoulder_pitch_link"/>
     <child link="left_shoulder_roll_link"/>
@@ -592,7 +592,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_shoulder_yaw_joint" type="fixed">
+  <joint name="left_shoulder_yaw_joint" type="revolute">
     <origin xyz="-0.00354 0.0062424 -0.1032" rpy="0 0 0"/>
     <parent link="left_shoulder_roll_link"/>
     <child link="left_shoulder_yaw_link"/>
@@ -621,7 +621,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_elbow_pitch_joint" type="fixed">
+  <joint name="left_elbow_pitch_joint" type="revolute">
     <origin xyz="0 0.00189 -0.0855" rpy="0 0 0"/>
     <parent link="left_shoulder_yaw_link"/>
     <child link="left_elbow_pitch_link"/>
@@ -650,7 +650,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_elbow_roll_joint" type="fixed">
+  <joint name="left_elbow_roll_joint" type="revolute">
     <origin xyz="0.1 0 0" rpy="0 0 0"/>
     <parent link="left_elbow_pitch_link"/>
     <child link="left_elbow_roll_link"/>
@@ -681,7 +681,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_shoulder_pitch_joint" type="fixed">
+  <joint name="right_shoulder_pitch_joint" type="revolute">
     <origin xyz="-0.0025 -0.10396 0.25928" rpy="-0.27925 0 0"/>
     <parent link="torso_link"/>
     <child link="right_shoulder_pitch_link"/>
@@ -710,7 +710,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_shoulder_roll_joint" type="fixed">
+  <joint name="right_shoulder_roll_joint" type="revolute">
     <origin xyz="0 -0.052 0" rpy="0.27925 0 0"/>
     <parent link="right_shoulder_pitch_link"/>
     <child link="right_shoulder_roll_link"/>
@@ -739,7 +739,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_shoulder_yaw_joint" type="fixed">
+  <joint name="right_shoulder_yaw_joint" type="revolute">
     <origin xyz="-0.00354 -0.0062424 -0.1032" rpy="0 0 0"/>
     <parent link="right_shoulder_roll_link"/>
     <child link="right_shoulder_yaw_link"/>
@@ -768,7 +768,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_elbow_pitch_joint" type="fixed">
+  <joint name="right_elbow_pitch_joint" type="revolute">
     <origin xyz="0 -0.00189 -0.0855" rpy="0 0 0"/>
     <parent link="right_shoulder_yaw_link"/>
     <child link="right_elbow_pitch_link"/>
@@ -797,7 +797,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_elbow_roll_joint" type="fixed">
+  <joint name="right_elbow_roll_joint" type="revolute">
     <origin xyz="0.1 0 0" rpy="0 0 0"/>
     <parent link="right_elbow_pitch_link"/>
     <child link="right_elbow_roll_link"/>
@@ -871,7 +871,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_zero_joint" type="fixed">
+  <joint name="left_zero_joint" type="revolute">
     <origin xyz="0.050 0 0" rpy="0 0 0"/>
     <parent link="left_palm_link"/>
     <child link="left_zero_link"/>
@@ -900,7 +900,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision> -->
   </link>
-  <joint name="left_one_joint" type="fixed">
+  <joint name="left_one_joint" type="revolute">
     <origin xyz="-0.02652502957 -0.0188 -0.00005" rpy="0 0 0"/>
     <parent link="left_zero_link"/>
     <child link="left_one_link"/>
@@ -929,7 +929,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_two_joint" type="fixed">
+  <joint name="left_two_joint" type="revolute">
     <origin xyz="0 -0.0431 0" rpy="0 0 0"/>
     <parent link="left_one_link"/>
     <child link="left_two_link"/>
@@ -958,7 +958,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_three_joint" type="fixed">
+  <joint name="left_three_joint" type="revolute">
     <origin xyz="0.085 0.004 0.02395" rpy="0 0 0"/>
     <parent link="left_palm_link"/>
     <child link="left_three_link"/>
@@ -987,7 +987,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_four_joint" type="fixed">
+  <joint name="left_four_joint" type="revolute">
     <origin xyz="0.0471 -0.0036 0" rpy="0 0 0"/>
     <parent link="left_three_link"/>
     <child link="left_four_link"/>
@@ -1016,7 +1016,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_five_joint" type="fixed">
+  <joint name="left_five_joint" type="revolute">
     <origin xyz="0.085 0.004 -0.02395" rpy="0 0 0"/>
     <parent link="left_palm_link"/>
     <child link="left_five_link"/>
@@ -1045,7 +1045,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="left_six_joint" type="fixed">
+  <joint name="left_six_joint" type="revolute">
     <origin xyz="0.0471 -0.0036 0" rpy="0 0 0"/>
     <parent link="left_five_link"/>
     <child link="left_six_link"/>
@@ -1104,7 +1104,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_zero_joint" type="fixed">
+  <joint name="right_zero_joint" type="revolute">
     <origin xyz="0.050 0 0" rpy="0 0 0"/>
     <parent link="right_palm_link"/>
     <child link="right_zero_link"/>
@@ -1133,7 +1133,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision> -->
   </link>
-  <joint name="right_one_joint" type="fixed">
+  <joint name="right_one_joint" type="revolute">
     <origin xyz="-0.02652502957 0.0188 -0.00005" rpy="0 0 0"/>
     <parent link="right_zero_link"/>
     <child link="right_one_link"/>
@@ -1162,7 +1162,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_two_joint" type="fixed">
+  <joint name="right_two_joint" type="revolute">
     <origin xyz="0 0.0431 0" rpy="0 0 0"/>
     <parent link="right_one_link"/>
     <child link="right_two_link"/>
@@ -1191,7 +1191,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_three_joint" type="fixed">
+  <joint name="right_three_joint" type="revolute">
     <origin xyz="0.085 -0.004 0.02395" rpy="0 0 0"/>
     <parent link="right_palm_link"/>
     <child link="right_three_link"/>
@@ -1220,7 +1220,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_four_joint" type="fixed">
+  <joint name="right_four_joint" type="revolute">
     <origin xyz="0.0471 0.0036 0" rpy="0 0 0"/>
     <parent link="right_three_link"/>
     <child link="right_four_link"/>
@@ -1249,7 +1249,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_five_joint" type="fixed">
+  <joint name="right_five_joint" type="revolute">
     <origin xyz="0.085 -0.004 -0.02395" rpy="0 0 0"/>
     <parent link="right_palm_link"/>
     <child link="right_five_link"/>
@@ -1278,7 +1278,7 @@ Stephen Brawner (brawner@gmail.com)
       </geometry>
     </collision>
   </link>
-  <joint name="right_six_joint" type="fixed">
+  <joint name="right_six_joint" type="revolute">
     <origin xyz="0.0471 0.0036 0" rpy="0 0 0"/>
     <parent link="right_five_link"/>
     <child link="right_six_link"/>
