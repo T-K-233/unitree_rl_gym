@@ -73,23 +73,23 @@ class G1RoughCfg(LeggedRobotCfg):
         # PD Drive parameters:
         control_type = 'P'
           # PD Drive parameters:
-        stiffness = {'hip_yaw': 200,
-                     'hip_roll': 200,
-                     'hip_pitch': 200,
-                     'knee': 300,
+        stiffness = {'hip_yaw': 80,
+                     'hip_roll': 80,
+                     'hip_pitch': 80,
+                     'knee': 120,
                      'ankle': 40,
-                     'torso': 300,
+                     'torso': 100,
                      'shoulder': 100,
-                     "elbow":100,
+                     "elbow": 100,
                      }  # [N*m/rad]
-        damping = {  'hip_yaw': 5,
-                     'hip_roll': 5,
-                     'hip_pitch': 5,
-                     'knee': 6,
+        damping = {  'hip_yaw': 3,
+                     'hip_roll': 3,
+                     'hip_pitch': 3,
+                     'knee': 3,
                      'ankle': 2,
-                     'torso': 6,
+                     'torso': 3,
                      'shoulder': 2,
-                     "elbow":2,
+                     "elbow": 2,
                      }  # [N*m/rad]  # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
