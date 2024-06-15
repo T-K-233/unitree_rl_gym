@@ -151,8 +151,8 @@ class G1LegRoughCfgPPO(G1RoughCfgPPO):
 
 class G1LegArmRoughCfg(G1RoughCfg):
     class env(G1RoughCfg.env):
-        num_observations = 48
-        num_actions = 12
+        num_observations = 78
+        num_actions = 22
     
     class asset(G1RoughCfg.asset):
         file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/g1/urdf/g1_leg_arm.urdf"

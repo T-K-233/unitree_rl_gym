@@ -12,5 +12,5 @@ task_registry.register("h1", LeggedRobot, H1RoughCfg(), H1RoughCfgPPO())
 
 task_registry.register("g1", LeggedRobot, G1RoughCfg(), G1RoughCfgPPO())
 task_registry.register("g1_leg", LeggedRobot, G1LegRoughCfg(), G1LegRoughCfgPPO())
-task_registry.register("g1_legarm", LeggedRobot, G1LegArmRoughCfg(), G1LegArmRoughCfgPPO())
+task_registry.register("g1_leg_arm", LeggedRobot, G1LegArmRoughCfg(), G1LegArmRoughCfgPPO())
 
