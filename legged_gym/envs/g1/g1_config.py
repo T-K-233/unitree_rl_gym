@@ -83,9 +83,16 @@ class G1RoughCfg(LeggedRobotCfg):
         self_collisions = 1 # 1 to disable, 0 to enable...bitwise filter
         flip_visual_attachments = False
   
+    class commands:
+        class ranges:
+            lin_vel_x = [-.5, .5] # min max [m/s]
+            lin_vel_y = [-.5, .5]   # min max [m/s]
+            ang_vel_yaw = [-.5, .5]    # min max [rad/s]
+            heading = [-3.14, 3.14]
+
     class rewards(LeggedRobotCfg.rewards):
         soft_dof_pos_limit = 0.9
-        base_height_target = 0.7
+        base_height_target = 0.66
         
         class scales(LeggedRobotCfg.rewards.scales):
             tracking_lin_vel = 1.0
@@ -127,6 +134,7 @@ class G1RoughCfgPPO(LeggedRobotCfgPPO):
     class runner(LeggedRobotCfgPPO.runner):
         run_name = ""
         experiment_name = "g1"
+        max_iterations = 3000
 
 
 
