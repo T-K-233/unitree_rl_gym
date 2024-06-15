@@ -83,8 +83,8 @@ class G1RoughCfg(LeggedRobotCfg):
         self_collisions = 1 # 1 to disable, 0 to enable...bitwise filter
         flip_visual_attachments = False
   
-    class commands:
-        class ranges:
+    class commands(LeggedRobotCfg.commands):
+        class ranges(LeggedRobotCfg.commands.ranges):
             lin_vel_x = [-.5, .5] # min max [m/s]
             lin_vel_y = [-.5, .5]   # min max [m/s]
             ang_vel_yaw = [-.5, .5]    # min max [rad/s]
@@ -108,7 +108,7 @@ class G1RoughCfg(LeggedRobotCfg):
             torques = 0.0
             dof_pos_limits = -10.0
 
-    class domain_rand:
+    class domain_rand(LeggedRobotCfg.domain_rand):
         randomize_friction = True
         friction_range = [0.5, 1.25]
         randomize_base_mass = False
@@ -117,7 +117,7 @@ class G1RoughCfg(LeggedRobotCfg):
         push_interval_s = 15
         max_push_vel_xy = 1.
 
-    class noise:
+    class noise(LeggedRobotCfg.noise):
         add_noise = True
         noise_level = 1.0 # scales other values
         class noise_scales:
