@@ -2,7 +2,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class G1RoughCfg(LeggedRobotCfg):
     class init_state(LeggedRobotCfg.init_state):
-        pos = [0.0, 0.0, 0.8] # x,y,z [m]
+        pos = [0.0, 0.0, 0.68] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
             #    'left_hip_yaw_joint' : 0. ,   
             #    'left_hip_roll_joint' : 0,               
@@ -23,17 +23,17 @@ class G1RoughCfg(LeggedRobotCfg):
             #    'right_shoulder_roll_joint' : 0.0,
             #    'right_shoulder_yaw_joint' : 0.,
             #    'right_elbow_joint' : 0.,
-            "left_hip_pitch_joint": 0,
+            "left_hip_pitch_joint": -0.4,
             "left_hip_roll_joint": 0,
             "left_hip_yaw_joint": 0,
-            "left_knee_joint": 0,
-            "left_ankle_pitch_joint": 0,
+            "left_knee_joint": 0.8,
+            "left_ankle_pitch_joint": -0.4,
             "left_ankle_roll_joint": 0,
-            "right_hip_pitch_joint": 0,
+            "right_hip_pitch_joint": -0.4,
             "right_hip_roll_joint": 0,
             "right_hip_yaw_joint": 0,
-            "right_knee_joint": 0,
-            "right_ankle_pitch_joint": 0,
+            "right_knee_joint": 0.8,
+            "right_ankle_pitch_joint": -0.4,
             "right_ankle_roll_joint": 0,
             "torso_joint": 0,
             "left_shoulder_pitch_joint": 0,
@@ -73,20 +73,20 @@ class G1RoughCfg(LeggedRobotCfg):
         # PD Drive parameters:
         control_type = 'P'
           # PD Drive parameters:
-        stiffness = {'hip_yaw': 80,
-                     'hip_roll': 80,
-                     'hip_pitch': 80,
-                     'knee': 120,
-                     'ankle': 40,
-                     'torso': 100,
-                     'shoulder': 100,
-                     "elbow": 100,
+        stiffness = {'hip_yaw': 60,
+                     'hip_roll': 60,
+                     'hip_pitch': 60,
+                     'knee': 80,
+                     'ankle': 30,
+                     'torso': 80,
+                     'shoulder': 30,
+                     "elbow": 30,
                      }  # [N*m/rad]
         damping = {  'hip_yaw': 3,
                      'hip_roll': 3,
                      'hip_pitch': 3,
                      'knee': 3,
-                     'ankle': 2,
+                     'ankle': 1,
                      'torso': 3,
                      'shoulder': 2,
                      "elbow": 2,
@@ -108,6 +108,7 @@ class G1RoughCfg(LeggedRobotCfg):
     class rewards(LeggedRobotCfg.rewards):
         soft_dof_pos_limit = 0.9
         base_height_target = 0.78
+        
         class scales(LeggedRobotCfg.rewards.scales):
             tracking_lin_vel = 1.0
             tracking_ang_vel = 0.5
